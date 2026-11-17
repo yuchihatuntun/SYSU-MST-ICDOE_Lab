@@ -1,0 +1,114 @@
+\documentclass[12pt,a4paper]{ctexart}
+
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{titlesec}
+
+% 页面设置
+\geometry{
+    top=2.5cm,
+    bottom=2.5cm,
+    left=2.8cm,
+    right=2.8cm
+}
+
+% 定义 section* 格式
+\titleformat{\section}
+  {\zihao{-3}\heiti\bfseries}
+  {}
+  {0em}
+  {}
+\titlespacing*{\section}{0pt}{0.5cm}{0.3cm}  % 左缩进、上间距、下间距
+
+
+% 取消页码（封面）
+\pagestyle{empty}
+
+% 定义等长下划线命令（固定宽度 6.5cm，左对齐）
+\newcommand{\infofill}[1]{{\zihao{4}\songti\underline{\makebox[6.5cm][c]{#1}}}}
+
+% 定义内容区块命令
+\newcommand{\reportsection}[2]{%
+    \noindent{\zihao{-3}\heiti\bfseries #1（#2分）}
+    \vspace{0.3cm}
+    
+    \noindent\rule{\textwidth}{0.4pt}
+    \vspace{6cm}
+}
+
+% 设置中文字体
+\setCJKmainfont{SimSun}  % 宋体，可根据系统改为 Noto Serif CJK SC 等
+
+\begin{document}
+% ==================== 封面页 ====================
+\begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+    % 校徽占位（正方形示例图）
+    \includegraphics[width=5cm,height=5cm]{images/University_Logo.png}
+    
+    \vspace{1.8cm}
+    
+    % 中山大学
+    {\zihao{1}\heiti\bfseries 中山大学}
+    
+    \vspace{0.9cm}
+    
+    % 微电子科学与技术学院
+    {\zihao{2}\heiti 微电子科学与技术学院}
+    
+    \vspace{0.9cm}
+    
+    % 课程名称
+    {\zihao{2}\heiti 《IC设计开放性实验》}
+    
+    \vspace{0.9cm}
+    
+    % 实验报告
+    {\zihao{1}\heiti\bfseries 开题报告}
+    
+    \vspace{3cm}
+    
+    % 信息表格
+    
+
+    % 成员信息（仅展示姓名和学号，一行）
+    {\zihao{4}\heiti\textbf{小组成员：}徐睿琳（23342107）\quad 吴博楠（23342097）}
+    
+    \vfill
+\end{titlepage}
+
+% ==================== 内容页 ====================
+\newpage
+\pagestyle{plain}
+\setcounter{page}{2}
+
+\section{项目背景与意义}
+\label{sec:background}
+
+随着物联网、工业控制与边缘智能设备的普及，嵌入式系统对功耗、成本与实时响应提出了更为严苛的要求，由处理器核、片上互连与外设模块高度集成而成的 SoC 已成为主流形态。ARM Cortex-M3 基于 ARMv7-M 架构，凭借 Thumb-2 指令集、嵌套向量中断控制器（NVIC）与确定性的中断响应，在微控制器领域得到广泛应用，并形成了成熟的工具链与软件生态。然而，常规开发多以现成 MCU 为起点，工作重心集中于寄存器配置与应用逻辑，对处理器核取指、总线仲裁、外设地址空间映射等系统级问题往往缺乏直观而完整的认识。
+
+FPGA 具备逻辑可重构、IP 可复用与原型迭代周期短的特点，是处理器系统架构探索与功能验证的常用载体。借助可获取的 Cortex-M3 处理器 IP 以及 AHB/APB 互连、片上存储与通用外设模块，可在可编程逻辑中构建结构清晰、规模可控的最小计算机系统，并以板级实测替代纯仿真验证。本课题拟在 FPGA 上实现以 Cortex-M3 为核心、包含 GPIO 与 UART 的 SoC，完成时钟复位、地址映射与总线互连设计，并通过 GPIO 驱动 LED 闪烁、UART 输出 ``Hello World'' 完成软硬件联合调试，形成从硬件集成到固件运行的闭环验证。
+
+该工作有助于建立完整的系统级视角：在硬件层面理解处理器核、存储器、总线与外设之间的接口及时序约束；在软件层面掌握启动流程、链接脚本、寄存器级驱动与交叉编译调试方法；在工程层面贯通 RTL 集成、综合实现、比特流下载与板上验证的全流程。所构建的最小系统结构透明、规模适中、可复现性强，既可作为后续扩展定时器、中断控制与 DMA 等模块的基线平台，也可为异构加速、软硬件协同验证等更复杂的 SoC 实践提供可迁移的设计经验。
+
+\section{研究目标}
+
+
+\section{研究内容与技术路线}
+
+
+\section{预期成果}
+
+\section{研究计划与进度安排}
+
+
+\section{小组分工}
+
+
+
+\end{document}
